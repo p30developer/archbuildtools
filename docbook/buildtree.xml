@@ -3,16 +3,16 @@
 "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 
 <!--
-This file is part of manjaro-tools.
+This file is part of persianosx-tools.
 
-Copyright 2015 Manjaro Developers
+Copyright 2015 persianosx Developers
 
-manjaro-tools is free software; you can redistribute it and/or modify it
+persianosx-tools is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation; either version 2.1 of the License, or
 (at your option) any later version.
 
-manjaro-tools is distributed in the hope that it will be useful, but
+persianosx-tools is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 Lesser General Public License for more details.
@@ -24,7 +24,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
 <refentry id="buildtree" xmlns:xi="http://www.w3.org/2001/XInclude">
     <refentryinfo>
         <title>buildtree-+</title>
-        <productname>manjaro-tools</productname>
+        <productname>persianosx-tools</productname>
         <authorgroup>
             <author>
                 <contrib></contrib>
@@ -42,7 +42,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
 
     <refnamediv>
         <refname>buildtree</refname>
-        <refpurpose>buildtree is used to sync the manjaro and arch package build tree. </refpurpose>
+        <refpurpose>buildtree is used to sync the persianosx and arch package build tree. </refpurpose>
     </refnamediv>
 
     <refsynopsisdiv>
@@ -57,7 +57,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
 
         <para><command>buildtree</command> is used to sync package trees. </para>
 
-        <para>With buildtree, you can sync the manjaro and arch linux packae build trees.</para>
+        <para>With buildtree, you can sync the persianosx and arch linux packae build trees.</para>
 
     </refsect1>
 
@@ -70,7 +70,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
             <varlistentry>
                 <term><option>-s</option></term>
 
-                <listitem><para>Sync Manjaro linux tree.</para></listitem>
+                <listitem><para>Sync persianosx linux tree.</para></listitem>
             </varlistentry>
 
             <varlistentry>
@@ -103,7 +103,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
     <refsect1>
         <title>See Also</title>
         <para>
-            <citerefentry project='manjaro-tools'><refentrytitle>manjaro-tools.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
+            <citerefentry project='persianosx-tools'><refentrytitle>persianosx-tools.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
         </para>
     </refsect1>
 </refentry>

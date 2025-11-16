@@ -207,15 +207,17 @@ init_common(){
 
     [[ -z ${target_arch} ]] && target_arch=$(uname -m)
 
-    [[ -z ${cache_dir} ]] && cache_dir='/var/cache/manjaro-tools'
+    [[ -z ${cache_dir} ]] && cache_dir='/var/cache/persian-tools'
 
-    [[ -z ${chroots_dir} ]] && chroots_dir='/var/lib/manjaro-tools'
+    [[ -z ${chroots_dir} ]] && chroots_dir='/var/lib/persian-tools'
 
-    [[ -z ${log_dir} ]] && log_dir='/var/log/manjaro-tools'
+    [[ -z ${log_dir} ]] && log_dir='/var/log/persian-tools'
 
-    [[ -z ${build_mirror} ]] && build_mirror='https://mirror.easyname.at/manjaro'
+    #[[ -z ${build_mirror} ]] && build_mirror='https://mirror.easyname.at/manjaro'
 
-    [[ -z ${tmp_dir} ]] && tmp_dir='/tmp/manjaro-tools'
+    [[ -z ${build_mirror} ]] && build_mirror='https://mirror.rackspace.com/archlinux/'
+
+    [[ -z ${tmp_dir} ]] && tmp_dir='/tmp/persian-tools'
 }
 
 init_buildtree(){
@@ -225,7 +227,8 @@ init_buildtree(){
 
     [[ -z ${repo_tree[@]} ]] && repo_tree=('core' 'extra' 'community' 'multilib')
 
-    [[ -z ${host_tree} ]] && host_tree='https://github.com/manjaro'
+    #changed
+    [[ -z ${host_tree} ]] && host_tree='https://gitlab.com/archlinux'
 
     [[ -z ${host_tree_abs} ]] && host_tree_abs='https://projects.archlinux.org/git/svntogit'
 }
@@ -311,7 +314,7 @@ init_buildiso(){
 
     iso_name=$(get_osid)
 
-    [[ -z ${dist_branding} ]] && dist_branding="MANJARO"
+    [[ -z ${dist_branding} ]] && dist_branding="persian"
 
     [[ -z ${iso_compression} ]] && iso_compression='zstd'
 
@@ -374,9 +377,9 @@ load_config(){
 
     [[ -f $1 ]] || return 1
 
-    manjaro_tools_conf="$1"
+    persian_tools_conf="$1"
 
-    [[ -r ${manjaro_tools_conf} ]] && source ${manjaro_tools_conf}
+    [[ -r ${persian_tools_conf} ]] && source ${persian_tools_conf}
 
     init_common
 
@@ -415,11 +418,11 @@ load_profile_config(){
 
     [[ -z ${efi_boot_loader} ]] && efi_boot_loader="grub"
 
-    [[ -z ${hostname} ]] && hostname="manjaro"
+    [[ -z ${hostname} ]] && hostname="persian"
 
-    [[ -z ${username} ]] && username="manjaro"
+    [[ -z ${username} ]] && username="persian"
 
-    [[ -z ${password} ]] && password="manjaro"
+    [[ -z ${password} ]] && password="persian"
 
     [[ -z ${user_shell} ]] && user_shell='/bin/bash'
 
@@ -436,7 +439,7 @@ load_profile_config(){
     [[ -z ${disable_systemd[@]} ]] && disable_systemd=('pacman-init')
 
     if [[ -z ${enable_systemd_live[@]} ]]; then
-        enable_systemd_live=('manjaro-live' 'mhwd-live' 'pacman-init' 'mirrors-live')
+        enable_systemd_live=('persian-live' 'mhwd-live' 'pacman-init' 'mirrors-live')
     fi
 
     if [[ ${displaymanager} != "none" ]]; then
@@ -454,7 +457,8 @@ load_profile_config(){
 
     [[ -z ${chrootcfg} ]] && chrootcfg='false'
 
-    netgroups="https://gitlab.manjaro.org/applications/calamares-netgroups/-/raw/master/"
+    netgroups="https://gitlab.archlinux.org/applications/calamares-netgroups/-/raw/master/"
+
 
     [[ -z ${geoip} ]] && geoip='true'
 
@@ -480,11 +484,11 @@ get_edition(){
 
 get_project(){
     case "${edition}" in
-        'manjaro')
-            project="manjaro"
+        'persian')
+            project="persian"
         ;;
         'community')
-            project="manjaro-community"
+            project="persian-community"
         ;;
     esac
     echo "${project}"
@@ -626,10 +630,10 @@ load_pkgs(){
     case "${edition}" in
         'sonar')
             _edition="s|>sonar||g"
-            _edition_rm="s|>manjaro.*||g"
+            _edition_rm="s|>persian.*||g"
         ;;
         *)
-            _edition="s|>manjaro||g"
+            _edition="s|>persian||g"
             _edition_rm="s|>sonar.*||g"
         ;;
     esac
@@ -717,7 +721,7 @@ load_user_info(){
         USER_HOME=$HOME
     fi
 
-    USERCONFDIR="$USER_HOME/.config/manjaro-tools"
+    USERCONFDIR="$USER_HOME/.config/persian-tools"
     prepare_dir "${USERCONFDIR}"
 }
 
@@ -728,15 +732,15 @@ load_run_dir(){
 }
 
 show_version(){
-    msg "manjaro-tools"
+    msg "persian-tools"
     msg2 "version: %s" "${version}"
 }
 
 show_config(){
-    if [[ -f ${USERCONFDIR}/manjaro-tools.conf ]]; then
-        msg2 "config: %s" "~/.config/manjaro-tools/manjaro-tools.conf"
+    if [[ -f ${USERCONFDIR}/persian-tools.conf ]]; then
+        msg2 "config: %s" "~/.config/persian-tools/persian-tools.conf"
     else
-        msg2 "config: %s" "${manjaro_tools_conf}"
+        msg2 "config: %s" "${persian_tools_conf}"
     fi
 }
 
@@ -833,15 +837,18 @@ create_chksums() {
     sha256sum $1 > $1.sha256
 }
 
+#need check 
 init_profiles() {
-    _workdir='/usr/share/manjaro-tools'
+    _workdir='/usr/share/persian-tools'
     if [[ -d ${_workdir}/iso-profiles ]]; then
         rm -Rf ${_workdir}/iso-profiles
     fi
-    git clone -q --depth 1 -b ${branch} https://gitlab.manjaro.org/profiles-and-settings/iso-profiles.git ${_workdir}/iso-profiles/
+    
+    #iso profile
+    git clone -q --depth 1 -b ${branch} https://gitlab.archlinux.org/profiles-and-settings/iso-profiles.git ${_workdir}/iso-profiles/
 
     #Check if git clone is done
-    if [[ -d ${_workdir}/iso-profiles/manjaro ]] && [[ -d ${_workdir}/iso-profiles/community ]]; then
+    if [[ -d ${_workdir}/iso-profiles/persian ]] && [[ -d ${_workdir}/iso-profiles/community ]]; then
 
         for i in ${_workdir}/iso-profiles/.gitignore ${_workdir}/iso-profiles/README.md; do
         rm -f $i
@@ -850,7 +857,7 @@ init_profiles() {
         for i in ${_workdir}/iso-profiles/.git ${_workdir}/iso-profiles/sonar; do
             rm -Rf $i
         done
-    else msg2 "Impossible to initialize iso-profiles, please check internet connection or browse at 'https://gitlab.manjaro.org/profiles-and-settings/iso-profiles'"
+    else msg2 "Impossible to initialize iso-profiles, please check internet connection or browse at 'https://gitlab.archlinux.org/profiles-and-settings/iso-profiles'"
     exit 1
     fi
 }

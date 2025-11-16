@@ -66,7 +66,7 @@ display_settings(){
 
 load_user_info
 
-load_config "${USERCONFDIR}/manjaro-tools.conf" || load_config "${SYSCONFDIR}/manjaro-tools.conf"
+load_config "${USERCONFDIR}/persian-tools.conf" || load_config "${SYSCONFDIR}/persian-tools.conf"
 
 run_dir=${cache_dir_iso}
 
@@ -94,7 +94,7 @@ usage() {
     echo '    -t                 Create ISO torrent'
     echo '    -u                 Update remote directory'
     echo '    -v                 Verbose output'
-    echo '    -w                 Update download page on manjaro.org'
+    echo '    -w                 Update download page on persian.org'
     echo '    -z                 Upload permalinks (shell.osdn.net)'
     echo ''
     echo ''

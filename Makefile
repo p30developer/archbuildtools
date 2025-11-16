@@ -4,13 +4,13 @@ PREFIX = /usr/local
 SYSCONFDIR = /etc
 
 SYSCONF = \
-	data/manjaro-tools.conf \
+	data/persian-tools.conf \
 	data/branding.desc.d
 
 BIN_BASE = \
 	bin/mkchroot \
 	bin/basestrap \
-	bin/manjaro-chroot \
+	bin/persian-chroot \
 	bin/fstabgen \
 	bin/signfile \
 	bin/chroot-run
@@ -81,7 +81,7 @@ MAN_XML = \
 	buildiso.xml \
 	deployiso.xml \
 	check-yaml.xml \
-	manjaro-tools.conf.xml \
+	persian-tools.conf.xml \
 	profile.conf.xml
 
 BIN_YAML = \
@@ -95,9 +95,9 @@ SHARED_YAML = \
 
 all: $(BIN_BASE) $(BIN_PKG) $(BIN_ISO) $(BIN_YAML) doc
 
-edit = sed -e "s|@datadir[@]|$(DESTDIR)$(PREFIX)/share/manjaro-tools|g" \
-	-e "s|@sysconfdir[@]|$(DESTDIR)$(SYSCONFDIR)/manjaro-tools|g" \
-	-e "s|@libdir[@]|$(DESTDIR)$(PREFIX)/lib/manjaro-tools|g" \
+edit = sed -e "s|@datadir[@]|$(DESTDIR)$(PREFIX)/share/persian-tools|g" \
+	-e "s|@sysconfdir[@]|$(DESTDIR)$(SYSCONFDIR)/persian-tools|g" \
+	-e "s|@libdir[@]|$(DESTDIR)$(PREFIX)/lib/persian-tools|g" \
 	-e "s|@version@|${Version}|"
 
 %: %.in Makefile
@@ -116,49 +116,49 @@ clean:
 	rm -rf man
 
 install_base:
-	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/manjaro-tools
-	install -m0644 ${SYSCONF} $(DESTDIR)$(SYSCONFDIR)/manjaro-tools
+	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/persian-tools
+	install -m0644 ${SYSCONF} $(DESTDIR)$(SYSCONFDIR)/persian-tools
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/bin
 	install -m0755 ${BIN_BASE} $(DESTDIR)$(PREFIX)/bin
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro-tools
-	install -m0644 ${LIBS_BASE} $(DESTDIR)$(PREFIX)/lib/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/lib/persian-tools
+	install -m0644 ${LIBS_BASE} $(DESTDIR)$(PREFIX)/lib/persian-tools
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/share/manjaro-tools
-	install -m0644 ${SHARED_BASE} $(DESTDIR)$(PREFIX)/share/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/share/persian-tools
+	install -m0644 ${SHARED_BASE} $(DESTDIR)$(PREFIX)/share/persian-tools
 
 install_pkg:
-	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/pkg.list.d
-	install -m0644 ${LIST_PKG} $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/pkg.list.d
+	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/persian-tools/pkg.list.d
+	install -m0644 ${LIST_PKG} $(DESTDIR)$(SYSCONFDIR)/persian-tools/pkg.list.d
 
-	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/make.conf.d
-	install -m0644 ${ARCH_CONF} $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/make.conf.d
+	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/persian-tools/make.conf.d
+	install -m0644 ${ARCH_CONF} $(DESTDIR)$(SYSCONFDIR)/persian-tools/make.conf.d
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/bin
 	install -m0755 ${BIN_PKG} $(DESTDIR)$(PREFIX)/bin
 
 	ln -sf find-libdeps $(DESTDIR)$(PREFIX)/bin/find-libprovides
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro-tools
-	install -m0644 ${LIBS_PKG} $(DESTDIR)$(PREFIX)/lib/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/lib/persian-tools
+	install -m0644 ${LIBS_PKG} $(DESTDIR)$(PREFIX)/lib/persian-tools
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/share/manjaro-tools
-	install -m0644 ${SHARED_PKG} $(DESTDIR)$(PREFIX)/share/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/share/persian-tools
+	install -m0644 ${SHARED_PKG} $(DESTDIR)$(PREFIX)/share/persian-tools
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/man/man1
 	gzip -c man/buildpkg.1 > $(DESTDIR)$(PREFIX)/share/man/man1/buildpkg.1.gz
 	gzip -c man/buildtree.1 > $(DESTDIR)$(PREFIX)/share/man/man1/buildtree.1.gz
 
 install_iso:
-	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/iso.list.d
-	install -m0644 ${LIST_ISO} $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/iso.list.d
+	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/persian-tools/iso.list.d
+	install -m0644 ${LIST_ISO} $(DESTDIR)$(SYSCONFDIR)/persian-tools/iso.list.d
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/bin
 	install -m0755 ${BIN_ISO} $(DESTDIR)$(PREFIX)/bin
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro-tools
-	install -m0644 ${LIBS_ISO} $(DESTDIR)$(PREFIX)/lib/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/lib/persian-tools
+	install -m0644 ${LIBS_ISO} $(DESTDIR)$(PREFIX)/lib/persian-tools
 
 	install -dm0755 $(DESTDIR)$(SYSCONFDIR)/initcpio/hooks
 	install -m0755 ${CPIOHOOKS} $(DESTDIR)$(SYSCONFDIR)/initcpio/hooks
@@ -169,64 +169,64 @@ install_iso:
 	install -m0755 ${CPIO} $(DESTDIR)$(SYSCONFDIR)/initcpio
 
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/share/manjaro-tools
-	install -m0644 ${SHARED_ISO} $(DESTDIR)$(PREFIX)/share/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/share/persian-tools
+	install -m0644 ${SHARED_ISO} $(DESTDIR)$(PREFIX)/share/persian-tools
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/man/man1
 	gzip -c man/buildiso.1 > $(DESTDIR)$(PREFIX)/share/man/man1/buildiso.1.gz
 	gzip -c man/deployiso.1 > $(DESTDIR)$(PREFIX)/share/man/man1/deployiso.1.gz
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/man/man5
-	gzip -c man/manjaro-tools.conf.5 > $(DESTDIR)$(PREFIX)/share/man/man5/manjaro-tools.conf.5.gz
+	gzip -c man/persian-tools.conf.5 > $(DESTDIR)$(PREFIX)/share/man/man5/persian-tools.conf.5.gz
 	gzip -c man/profile.conf.5 > $(DESTDIR)$(PREFIX)/share/man/man5/profile.conf.5.gz
 
 install_yaml:
 	install -dm0755 $(DESTDIR)$(PREFIX)/bin
 	install -m0755 ${BIN_YAML} $(DESTDIR)$(PREFIX)/bin
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/lib/manjaro-tools
-	install -m0644 ${LIBS_YAML} $(DESTDIR)$(PREFIX)/lib/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/lib/persian-tools
+	install -m0644 ${LIBS_YAML} $(DESTDIR)$(PREFIX)/lib/persian-tools
 
-	install -dm0755 $(DESTDIR)$(PREFIX)/share/manjaro-tools
-	install -m0644 ${SHARED_YAML} $(DESTDIR)$(PREFIX)/share/manjaro-tools
+	install -dm0755 $(DESTDIR)$(PREFIX)/share/persian-tools
+	install -m0644 ${SHARED_YAML} $(DESTDIR)$(PREFIX)/share/persian-tools
 
 	install -dm0755 $(DESTDIR)$(PREFIX)/share/man/man1
 	gzip -c man/check-yaml.1 > $(DESTDIR)$(PREFIX)/share/man/man1/check-yaml.1.gz
 
 uninstall_base:
-	for f in ${SYSCONF}; do rm -f $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/$$f; done
+	for f in ${SYSCONF}; do rm -f $(DESTDIR)$(SYSCONFDIR)/persian-tools/$$f; done
 	for f in ${BIN_BASE}; do rm -f $(DESTDIR)$(PREFIX)/bin/$$f; done
-	for f in ${SHARED_BASE}; do rm -f $(DESTDIR)$(PREFIX)/share/manjaro-tools/$$f; done
-	for f in ${LIBS_BASE}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro-tools/$$f; done
+	for f in ${SHARED_BASE}; do rm -f $(DESTDIR)$(PREFIX)/share/persian-tools/$$f; done
+	for f in ${LIBS_BASE}; do rm -f $(DESTDIR)$(PREFIX)/lib/persian-tools/$$f; done
 
 uninstall_pkg:
-	for f in ${LIST_PKG}; do rm -f $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/pkg.list.d/$$f; done
-	for f in ${ARCH_CONF}; do rm -f $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/make.conf.d/$$f; done
+	for f in ${LIST_PKG}; do rm -f $(DESTDIR)$(SYSCONFDIR)/persian-tools/pkg.list.d/$$f; done
+	for f in ${ARCH_CONF}; do rm -f $(DESTDIR)$(SYSCONFDIR)/persian-tools/make.conf.d/$$f; done
 	for f in ${BIN_PKG}; do rm -f $(DESTDIR)$(PREFIX)/bin/$$f; done
 	rm -f $(DESTDIR)$(PREFIX)/bin/find-libprovides
-	for f in ${SHARED_PKG}; do rm -f $(DESTDIR)$(PREFIX)/share/manjaro-tools/$$f; done
-	for f in ${LIBS_PKG}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro-tools/$$f; done
+	for f in ${SHARED_PKG}; do rm -f $(DESTDIR)$(PREFIX)/share/persian-tools/$$f; done
+	for f in ${LIBS_PKG}; do rm -f $(DESTDIR)$(PREFIX)/lib/persian-tools/$$f; done
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/buildpkg.1.gz
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/buildtree.1.gz
 
 uninstall_iso:
-	for f in ${LIST_ISO}; do rm -f $(DESTDIR)$(SYSCONFDIR)/manjaro-tools/iso.list.d/$$f; done
+	for f in ${LIST_ISO}; do rm -f $(DESTDIR)$(SYSCONFDIR)/persian-tools/iso.list.d/$$f; done
 	for f in ${BIN_ISO}; do rm -f $(DESTDIR)$(PREFIX)/bin/$$f; done
-	for f in ${SHARED_ISO}; do rm -f $(DESTDIR)$(PREFIX)/share/manjaro-tools/$$f; done
+	for f in ${SHARED_ISO}; do rm -f $(DESTDIR)$(PREFIX)/share/persian-tools/$$f; done
 
-	for f in ${LIBS_ISO}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro-tools/$$f; done
+	for f in ${LIBS_ISO}; do rm -f $(DESTDIR)$(PREFIX)/lib/persian-tools/$$f; done
 	for f in ${CPIOHOOKS}; do rm -f $(DESTDIR)$(SYSCONFDIR)/initcpio/hooks/$$f; done
 	for f in ${CPIOINST}; do rm -f $(DESTDIR)$(SYSCONFDIR)/initcpio/install/$$f; done
 	for f in ${CPIO}; do rm -f $(DESTDIR)$(SYSCONFDIR)/initcpio/$$f; done
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/buildiso.1.gz
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/deployiso.1.gz
-	rm -f $(DESTDIR)$(PREFIX)/share/man/man5/manjaro-tools.conf.5.gz
+	rm -f $(DESTDIR)$(PREFIX)/share/man/man5/persian-tools.conf.5.gz
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man5/profile.conf.5.gz
 
 uninstall_yaml:
 	for f in ${BIN_YAML}; do rm -f $(DESTDIR)$(PREFIX)/bin/$$f; done
-	for f in ${LIBS_YAML}; do rm -f $(DESTDIR)$(PREFIX)/lib/manjaro-tools/$$f; done
-	for f in ${SHARED_YAML}; do rm -f $(DESTDIR)$(PREFIX)/share/manjaro-tools/$$f; done
+	for f in ${LIBS_YAML}; do rm -f $(DESTDIR)$(PREFIX)/lib/persian-tools/$$f; done
+	for f in ${SHARED_YAML}; do rm -f $(DESTDIR)$(PREFIX)/share/persian-tools/$$f; done
 	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/check-yaml.1.gz
 
 install: install_base install_pkg install_iso install_yaml
@@ -234,7 +234,7 @@ install: install_base install_pkg install_iso install_yaml
 uninstall: uninstall_base uninstall_pkg uninstall_iso uninstall_yaml
 
 dist:
-	git archive --format=tar --prefix=manjaro-tools-$(Version)/ $(Version) | gzip -9 > manjaro-tools-$(Version).tar.gz
-	gpg --detach-sign --use-agent manjaro-tools-$(Version).tar.gz
+	git archive --format=tar --prefix=persian-tools-$(Version)/ $(Version) | gzip -9 > persian-tools-$(Version).tar.gz
+	gpg --detach-sign --use-agent persian-tools-$(Version).tar.gz
 
 .PHONY: all clean install uninstall dist

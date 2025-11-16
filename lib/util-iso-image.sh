@@ -110,7 +110,7 @@ configure_lsb(){
 configure_branding_old(){
     msg2 "Configuring branding"
     echo "---
-componentName:  manjaro
+componentName:  persian
 
 # This selects between different welcome texts. When false, uses
 # the traditional 'Welcome to the %1 installer.', and when true,
@@ -212,7 +212,7 @@ style:
    sidebarBackground:    "\"${sidebarbackground}"\"
    sidebarText:          "\"${sidebartext}"\"
    sidebarTextSelect:    "\"${sidebartextselect}"\"
-   sidebarTextHighlight: "\"${sidebartexthighlight}"\"" > $1/usr/share/calamares/branding/manjaro/branding.desc
+   sidebarTextHighlight: "\"${sidebartexthighlight}"\"" > $1/usr/share/calamares/branding/persian/branding.desc
 }
 
 configure_branding(){
@@ -227,7 +227,7 @@ configure_branding(){
 # Additional styling can be done using the stylesheet.qss
 # file, also in the branding directory.
 ---
-componentName:  manjaro
+componentName:  persian
 
 
 ### WELCOME / OVERALL WORDING
@@ -455,7 +455,7 @@ slideshowAPI: 2
 uploadServer :
     type :    "fiche"
     url :     "http://termbin.com:9999"
-    sizeLimit : -1" > $1/usr/share/calamares/branding/manjaro/branding.desc
+    sizeLimit : -1" > $1/usr/share/calamares/branding/persian/branding.desc
 }
 
 configure_polkit_user_rules(){
@@ -548,7 +548,7 @@ configure_system(){
     configure_journald "$1"
 
     # Prevent some services to be started in the livecd
-    echo 'File created by manjaro-tools. See systemd-update-done.service(8).' \
+    echo 'File created by persian-tools. See systemd-update-done.service(8).' \
     | tee "${path}/etc/.updated" >"${path}/var/.updated"
 
     msg2 "Disable systemd-gpt-auto-generator"

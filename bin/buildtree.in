@@ -36,7 +36,7 @@ display_settings(){
 
 load_user_info
 
-load_config "${USERCONFDIR}/manjaro-tools.conf" || load_config "${SYSCONFDIR}/manjaro-tools.conf"
+load_config "${USERCONFDIR}/persian-tools.conf" || load_config "${SYSCONFDIR}/persian-tools.conf"
 
 #sync=false
 pretend=false
@@ -45,7 +45,7 @@ clean=false
 
 usage() {
     echo "Usage: ${0##*/} [options]"
-   #echo "    -s            Sync manjaro tree"
+   #echo "    -s            Sync persian tree"
     echo "    -a            Sync arch abs"
     echo '    -c            Clean package tree'
     echo '    -q            Query settings'
@@ -80,6 +80,6 @@ ${pretend} && display_settings && exit 1
 
 ${clean} && clean_dir "${tree_dir}"
 
-#${sync} && sync_tree_manjaro
+#${sync} && sync_tree_persian
 
 ${abs} && sync_tree_abs

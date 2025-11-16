@@ -26,14 +26,14 @@ fi
 vdi_size=10240 # 10GB size
 
 #Check if already exist virtual disk and in case create it
-if [[ -e ~/VirtualBox\ VMs/Manjaro/Manjaro.vbox ]]; then
-    msg "Manjaro Virtual Machine Found"
+if [[ -e ~/VirtualBox\ VMs/persian/persian.vbox ]]; then
+    msg "persian Virtual Machine Found"
 else 
-    msg "We create a new VirtualBox Machine called Manjaro"
+    msg "We create a new VirtualBox Machine called persian"
     msg2 "We create a new Virtual Disk Image ( vdi ) with ${vdi_size}GB"
-    VBoxManage createmedium disk --filename ~/VirtualBox\ VMs/Manjaro/Manjaro.vdi --size ${vdi_size} --format VDI --variant Fixed
+    VBoxManage createmedium disk --filename ~/VirtualBox\ VMs/persian/persian.vdi --size ${vdi_size} --format VDI --variant Fixed
     
-    UUID=$(VBoxManage showhdinfo ~/VirtualBox\ VMs/Manjaro/Manjaro.vdi | awk 'NR == 1  {print $2}') #uuid of vdi disk
+    UUID=$(VBoxManage showhdinfo ~/VirtualBox\ VMs/persian/persian.vdi | awk 'NR == 1  {print $2}') #uuid of vdi disk
     gui_lang=$(awk -F'[.=]' '/LANG/ {print $2}' /etc/locale.conf)
 
     echo '<?xml version="1.0"?>
@@ -44,10 +44,10 @@ else
 ** Use VBoxManage or the VirtualBox Manager GUI to make changes.
 -->
 <VirtualBox xmlns="http://www.virtualbox.org/" version="1.16-linux">
-  <Machine uuid="{d5d29291-32e4-4c8e-9633-ecc0511966da}" name="Manjaro" OSType="ArchLinux_64" snapshotFolder="Snapshots" lastStateChange="2019-08-17T15:20:11Z">
+  <Machine uuid="{d5d29291-32e4-4c8e-9633-ecc0511966da}" name="persian" OSType="ArchLinux_64" snapshotFolder="Snapshots" lastStateChange="2019-08-17T15:20:11Z">
     <MediaRegistry>
       <HardDisks>
-        <HardDisk uuid="{UUID}" location="Manjaro.vdi" format="VDI" type="Normal"/>
+        <HardDisk uuid="{UUID}" location="persian.vdi" format="VDI" type="Normal"/>
       </HardDisks>
     </MediaRegistry>
     <Hardware>
@@ -92,21 +92,21 @@ else
       </StorageController>
     </StorageControllers>
   </Machine>
-</VirtualBox>' > ~/VirtualBox\ VMs/Manjaro/Manjaro.vbox
+</VirtualBox>' > ~/VirtualBox\ VMs/persian/persian.vbox
  
-    sed -i "s/UUID/$UUID/g" ~/VirtualBox\ VMs/Manjaro/Manjaro.vbox
-    sed -i "s/gui_lang/$gui_lang/g" ~/VirtualBox\ VMs/Manjaro/Manjaro.vbox
+    sed -i "s/UUID/$UUID/g" ~/VirtualBox\ VMs/persian/persian.vbox
+    sed -i "s/gui_lang/$gui_lang/g" ~/VirtualBox\ VMs/persian/persian.vbox
     
-    VBoxManage registervm ~/VirtualBox\ VMs/Manjaro/Manjaro.vbox #register the manjaro vbox machine
+    VBoxManage registervm ~/VirtualBox\ VMs/persian/persian.vbox #register the persian vbox machine
 fi
 
 
-VBoxManage storageattach Manjaro --storagectl IDE --port 1 --device 0 --medium emptydrive #empty the dvd drive
+VBoxManage storageattach persian --storagectl IDE --port 1 --device 0 --medium emptydrive #empty the dvd drive
 sleep 1
 
 load_user_info
 
-load_config "${USERCONFDIR}/manjaro-tools.conf" || load_config "${SYSCONFDIR}/manjaro-tools.conf"
+load_config "${USERCONFDIR}/persian-tools.conf" || load_config "${SYSCONFDIR}/persian-tools.conf"
 
 run_dir=${cache_dir_iso}
 dist_number=${dist_release}
@@ -121,13 +121,13 @@ else msg "No ISO to load present"
      exit 1
 fi
 
-VBoxManage storageattach Manjaro --storagectl IDE --port 1 --device 0  --type dvddrive --medium $iso_name #attach dvd manjaro iso
+VBoxManage storageattach persian --storagectl IDE --port 1 --device 0  --type dvddrive --medium $iso_name #attach dvd persian iso
 
 sleep 1
 
-msg2 "Run Vbox Manjaro with ${iso_name}"
+msg2 "Run Vbox persian with ${iso_name}"
 
 sleep 2
 
-VBoxManage startvm Manjaro #run vbox machine
+VBoxManage startvm persian #run vbox machine
 

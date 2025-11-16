@@ -68,7 +68,7 @@ display_settings(){
 
 load_user_info
 
-load_config "${USERCONFDIR}/manjaro-tools.conf" || load_config "${SYSCONFDIR}/manjaro-tools.conf"
+load_config "${USERCONFDIR}/persian-tools.conf" || load_config "${SYSCONFDIR}/persian-tools.conf"
 load_vars "$USER_HOME/.makepkg.conf" || load_vars /etc/makepkg.conf
 
 clean_first=false

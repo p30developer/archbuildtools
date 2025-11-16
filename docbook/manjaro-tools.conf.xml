@@ -3,16 +3,16 @@
 "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 
 <!--
-This file is part of manjaro-tools.
+This file is part of persianosx-tools.
 
-Copyright 2015 Manjaro Developers
+Copyright 2015 persianosx Developers
 
-manjaro-tools is free software; you can redistribute it and/or modify it
+persianosx-tools is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation; either version 2.1 of the License, or
 (at your option) any later version.
 
-manjaro-tools is distributed in the hope that it will be useful, but
+persianosx-tools is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 Lesser General Public License for more details.
@@ -25,7 +25,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
 
     <refentryinfo>
         <title>profile.conf-+</title>
-        <productname>manjaro-tools</productname>
+        <productname>persianosx-tools</productname>
 
         <authorgroup>
         <author>
@@ -38,23 +38,23 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
     </refentryinfo>
 
     <refmeta>
-        <refentrytitle>manjaro-tools.conf</refentrytitle>
+        <refentrytitle>persianosx-tools.conf</refentrytitle>
         <manvolnum>5</manvolnum>
     </refmeta>
 
     <refnamediv>
-        <refname>manjaro-tools.conf</refname>
-        <refpurpose>general configuration file for manjaro-tools</refpurpose>
+        <refname>persianosx-tools.conf</refname>
+        <refpurpose>general configuration file for persianosx-tools</refpurpose>
     </refnamediv>
 
     <refsynopsisdiv>
-        <para><filename>manjaro-tools.conf</filename></para>
+        <para><filename>persianosx-tools.conf</filename></para>
     </refsynopsisdiv>
 
     <refsect1>
         <title>Description</title>
 
-        <para>manjaro-tools.conf is a general configuration file for all manjaro-tools binaries. </para>
+        <para>persianosx-tools.conf is a general configuration file for all persianosx-tools binaries. </para>
 
         <para>By default all the options in the file are commented, with a value equal to the
         default value. To change it just uncomment and put the desired value.</para>
@@ -91,7 +91,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
                 <term><varname>cache_dir=</varname></term>
 
                 <listitem><para>Cache dir where buildpkg and buildise will cache
-                packages. Default is "/var/cache/manjaro-tools".
+                packages. Default is "/var/cache/persianosx-tools".
                 </para></listitem>
             </varlistentry>
 
@@ -100,14 +100,14 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
                 <term><varname>chroots_dir=</varname></term>
 
                 <listitem><para>Build dir where buildpkg or buildiso chroot
-                environment will be created. Default is "/var/lib/manjaro-tools".
+                environment will be created. Default is "/var/lib/persianosx-tools".
                 </para></listitem>
             </varlistentry>
 
             <varlistentry>
                 <term><varname>log_dir=</varname></term>
 
-                <listitem><para>Log dir where buildiso log the build process. Default is  "/var/log/manjaro-tools".
+                <listitem><para>Log dir where buildiso log the build process. Default is  "/var/log/persianosx-tools".
                 </para></listitem>
             </varlistentry>
 
@@ -131,7 +131,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
             <varlistentry>
                 <term><varname>repo_tree=</varname></term>
 
-                <listitem><para>Manjaro package tree. Default is
+                <listitem><para>persianosx package tree. Default is
                 "('core' 'extra' 'community' 'multilib')".
                 </para></listitem>
             </varlistentry>
@@ -139,7 +139,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
             <varlistentry>
                 <term><varname>host_tree=</varname></term>
 
-                <listitem><para>Host tree. Default is "https://github.com/manjaro".
+                <listitem><para>Host tree. Default is "https://github.com/persianosx".
                 </para></listitem>
             </varlistentry>
 
@@ -212,7 +212,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
             <term><varname>kernel=</varname></term>
 
             <listitem><para>Takes a string corresponding to a
-            manjaro kernel package (ex: linux318 for linux 3.18).
+            persianosx kernel package (ex: linux318 for linux 3.18).
             </para></listitem>
         </varlistentry>
 
@@ -253,7 +253,7 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
                 <term><varname>project=</varname></term>
 
                 <listitem><para>Default OSDN project name to be used for upload.
-                    If unset, 'manjaro' or 'manjaro-community' will be determined
+                    If unset, 'persianosx' or 'persianosx-community' will be determined
                     automatically based on profile.
                 </para></listitem>
             </varlistentry>
@@ -286,11 +286,11 @@ along with systemd; If not, see <http://www.gnu.org/licenses/>.
     <refsect1>
         <title>See Also</title>
         <para>
-            <citerefentry project='manjaro-tools'><refentrytitle>profiles.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
-            <citerefentry project='manjaro-tools'><refentrytitle>buildiso</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
-            <citerefentry project='manjaro-tools'><refentrytitle>deployiso</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
-            <citerefentry project='manjaro-tools'><refentrytitle>buildtree</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
-            <citerefentry project='manjaro-tools'><refentrytitle>buildpkg</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+            <citerefentry project='persianosx-tools'><refentrytitle>profiles.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
+            <citerefentry project='persianosx-tools'><refentrytitle>buildiso</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+            <citerefentry project='persianosx-tools'><refentrytitle>deployiso</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+            <citerefentry project='persianosx-tools'><refentrytitle>buildtree</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+            <citerefentry project='persianosx-tools'><refentrytitle>buildpkg</refentrytitle><manvolnum>1</manvolnum></citerefentry>
         </para>
     </refsect1>
 

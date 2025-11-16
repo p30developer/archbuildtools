@@ -215,24 +215,24 @@ pull_hp_repo(){
     load_vars "$USER_HOME/.makepkg.conf" || load_vars /etc/makepkg.conf
     [[ -z $SRCDEST ]] && SRCDEST=${cache_dir}
     
-    hp_repo=manjaro-homepage
-    [[ ${edition} == "manjaro" ]] && _edition="official" || _edition=${edition}
+    hp_repo=persian-homepage
+    [[ ${edition} == "persian" ]] && _edition="official" || _edition=${edition}
     dl_file="${SRCDEST}/${hp_repo}/site/content/downloads/${_edition}/${profile}.md"
 
     cd "${SRCDEST}"
     if [[ ! -d "${hp_repo}" ]]; then
-        msg "Cloning manjaro.org"
-        git clone "ssh://git@gitlab.manjaro.org:22277/webpage/${hp_repo}.git"
+        msg "Cloning persian.org"
+        git clone "ssh://git@gitlab.persian.org:22277/webpage/${hp_repo}.git"
     else
         cd "${hp_repo}"
-        msg "Pulling manjaro.org"
+        msg "Pulling persian.org"
         git pull
     fi
 }
 
 push_hp_repo(){
     cd "${SRCDEST}/${hp_repo}"
-    msg "Updating manjaro.org"
+    msg "Updating persian.org"
     git add ${dl_file}
     git commit -m "update download ${profile}"
     git push

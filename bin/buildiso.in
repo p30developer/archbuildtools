@@ -100,7 +100,7 @@ display_settings(){
 
 load_user_info
 
-load_config "${USERCONFDIR}/manjaro-tools.conf" || load_config "${SYSCONFDIR}/manjaro-tools.conf"
+load_config "${USERCONFDIR}/persian-tools.conf" || load_config "${SYSCONFDIR}/persian-tools.conf"
 
 # to force old way to have buildiso run in iso-profiles dir
 # run_dir=$(pwd)
@@ -184,7 +184,7 @@ shift $(($OPTIND - 1))
 if ${initialize}; then
 	msg "Initialize iso profiles ${branch}"
 	init_profiles
-	msg2 "Done: iso profiles are stored in /usr/share/manjaro-tools/iso-profiles"
+	msg2 "Done: iso profiles are stored in /usr/share/persian-tools/iso-profiles"
 	exit 1
 fi
 

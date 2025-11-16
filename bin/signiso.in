@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIBDIR='/usr/lib/manjaro-tools'
+LIBDIR='/usr/lib/persian-tools'
 
 [[ -r ${LIBDIR}/util-msg.sh ]] && source ${LIBDIR}/util-msg.sh
 
